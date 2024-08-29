@@ -66,7 +66,7 @@ body{
 }
 .material-symbols-outlined:hover{
     cursor: pointer;
-    color:rgb(231, 16, 16);
+    color:rgb(251, 251, 251);
     transition: all 0.3s ease;
 }
 .nav-list {
@@ -86,12 +86,12 @@ body{
 
 .nav-list li .nav-item:hover{
     cursor: pointer;
-    color:rgb(231, 16, 16);
+    color:rgb(251, 251, 251);
     opacity: 1.0;
 }
 
 .nav-list li .nav-item{
-    color: black;
+    color: rgb(255, 254, 254);
     opacity: 0.8;
     display: block;
     margin: 0;
@@ -100,7 +100,7 @@ body{
     padding: 5px 0px;
 }
 .doron-img-second{
-    width: 100%;
+    width: calc(100% - 8px);
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
@@ -148,8 +148,10 @@ body{
     height: fit-content;
     margin-left: auto;
     margin-right: auto;
-    width: var(100vw-8px);
-    max-width:1200px
+    width: calc(100vw - 16px);
+    max-width:1200px;
+    background-color: #5da79e;
+    color: rgb(255, 255, 255);
 }
 .footer-content {
     display: flex;
@@ -158,6 +160,10 @@ body{
     row-gap: 20px;
     column-gap: 20px;
     
+}
+footer>div>div>h3 , p{
+    margin-top: 0%;
+    margin-bottom: 0%;
 }
 a{
     text-decoration: none;
@@ -207,11 +213,14 @@ a{
 
 @media(max-width : 764px){
     .nav-bar {
-        width: 100%;
+        height: fit-content;
+        width: calc(100% - 8px);
         display: flex;
         flex-direction: column;
         justify-content: space-between  ;
         text-align: left;
+        display: block;
+        position: sticky;
     }
     .nav-bar .nav-list{
         text-align: left;
@@ -241,6 +250,8 @@ a{
     }
     .footer-content {
         flex-direction: column;
+        justify-content: center;
+        row-gap: 20px;
         
     }
 }
