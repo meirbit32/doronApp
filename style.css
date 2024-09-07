@@ -19,7 +19,11 @@ body{
     "main-content" 
     "side-bar" 
     "footer";
-    background-image: linear-gradient(90deg,rgba(142, 187, 187, 0.692), rgba(239, 210, 242, 0.692),  rgba(168, 124, 184, 0.692));
+    background-image: linear-gradient(180deg,rgba(119, 193, 193, 0.692), rgba(210, 241, 242, 0.762),  rgba(92, 233, 219, 0.692));
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center center;
+    background-attachment: fixed; /*Optional: Keeps the background fixed when scrolling*/
 }
 .header{
     text-align: center;
@@ -55,7 +59,8 @@ body{
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    width: 400px;
+    max-width: 400px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
@@ -121,10 +126,10 @@ body{
 
 .expl{
     max-width: 600px;
-    background: rgba(209, 196, 79, 0.1);
+    background: rgb(200, 230, 222);
     border-radius: 15px;
     margin-bottom: 15px;
-    box-shadow: 5px 5px 5px 5px rgba(79, 178, 178, 0.2);
+    box-shadow: 5px 5px 5px 5px rgba(79, 178, 178, 0.8);
 }
 .expl-item{
     direction: rtl;
@@ -143,7 +148,7 @@ body{
 }
 .footer{
     text-align: center;
-    line-height: 50px;
+    line-height: 30px;
     box-sizing: border-box;
     height: fit-content;
     margin-left: auto;
@@ -206,7 +211,7 @@ a{
         height: 150px;
     }
     .nav-bar{
-        width: 88vw;
+        /* width: 95vw; */
 
     }
 }
@@ -214,7 +219,7 @@ a{
 @media(max-width : 764px){
     .nav-bar {
         height: fit-content;
-        width: calc(100% - 8px);
+        /* width: calc(100% - 8px); */
         display: flex;
         flex-direction: column;
         justify-content: space-between  ;
