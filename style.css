@@ -198,6 +198,31 @@ a{
     background-color: #128C7E;
 }
 
+/* css for pictures-new file */
+
+.main-content-slider{
+    position:relative
+}
+.slider-container{
+    max-width: 1200px;
+}
+
+.slider{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 2em;
+    row-gap: 2em;
+    
+}
+.head{
+    text-align: center;
+}
+.slider img{
+    width: 200px;
+    aspect-ratio: 9/16;
+    ;
+}
+
 @media(max-width:235px){
     .doron-img{
         display: none;
