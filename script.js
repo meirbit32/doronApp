@@ -1,5 +1,5 @@
 
-        $(document).ready(function () {
+$(document).ready(function () {
             $(window).on("resize", function(){
                 if($(window).width() >= 764) {
                     $(".nav-list").css("display", "flex")
@@ -34,7 +34,76 @@
                     $this.text("Read Less");
                 }
             })
-        })
+
+            const imageUrls = Array.from({length:30},(_,i) =>{
+                const paddedNumber = String(i).padStart(2, '0');
+                return `./media/pictures/IMG-20230620-WA00${paddedNumber}.jpg`;
+            });
+
+            let currentIndex = 0;
+            const imagesPerLoad = 10;
+            let isLoading = false;
+
+            // Add loading indicator
+    const $loadingIndicator = $('<div id="loading-indicator">Loading...</div>').hide();
+    $('#image-container').after($loadingIndicator);
+
+    function showLoading() {
+        $loadingIndicator.show();
+    }
+
+    function hideLoading() {
+        $loadingIndicator.hide();
+    }
+
+    function loadSingleImage(url) {
+        return new Promise((resolve) => {
+            const $img = $('<img>');
+            const tempImg = new Image();
+            
+            tempImg.onload = function() {
+                $('#image-container').append($img);
+                resolve(true);
+            };
+            
+            tempImg.onerror = function() {
+                console.log(`Image ${url} does not exist`);
+                resolve(false);
+            };
+            
+            $img.attr('src', url);
+            tempImg.src = url;
+        });
+    }
+
+    async function loadImages() {
+        if (isLoading || currentIndex >= imageUrls.length) return;
+        isLoading = true;
+        
+        showLoading(); // Show loading indicator
+
+        let loadedCount = 0;
+        
+        while(loadedCount < imagesPerLoad && currentIndex < imageUrls.length) {
+            const loaded = await loadSingleImage(imageUrls[currentIndex]);
+            if (loaded) loadedCount++;
+            currentIndex++;
+        }
+        
+        hideLoading(); // Hide loading indicator
+        isLoading = false;
+    }
+
+    // Initial load
+    loadImages();
+
+    // Load more images when scrolling to the bottom
+    $(window).scroll(function() {
+        if($(window).scrollTop() + $(window).height() > $(document).height() - 200) {
+            loadImages();
+        }
+    });
+});
 
 
 
