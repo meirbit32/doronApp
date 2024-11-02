@@ -38,7 +38,14 @@ body{
     padding-left: 10px;
     line-height: 50%;
     font-family: Playwrite BE VLG;
+    background:  url(./media/pictures/alexis-magnone-c5AWH4bGQqM-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
+
 .header a{
     text-decoration: none;
     color: inherit;
