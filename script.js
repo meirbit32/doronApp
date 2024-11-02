@@ -18,7 +18,7 @@ $(document).ready(function () {
                     var newStr = myStr.substring(0, maxLength)
                     var removedStr = myStr.substring(maxLength, $.trim(myStr).length)
                     $(this).empty().html(newStr + '...');
-                    $(this).append('<span class=more-text>' + removedStr + '</span');
+                    $(this).append('<span class=more-text style="display: none;">' + removedStr + '</span');
                     $(this).append('<a href"=javascript:void(0);" class="read-more">Read More</a>');
                 }
             })
@@ -26,6 +26,7 @@ $(document).ready(function () {
             $(".read-more").click(function(){
                 var $this = $(this);
                 var $content = $this.siblings(".more-text");
+                console.log($content)
                 if($content.is(":visible")){
                     $content.hide();
                     $this.text("Read More");
@@ -58,12 +59,19 @@ $(document).ready(function () {
 
     function loadSingleImage(url) {
         return new Promise((resolve) => {
-            const $img = $('<img>');
-            const tempImg = new Image();
+            const $img = $('<img>', { 
+                alt: 'load',
+                style: 'display: none;' // Hide image initially
+            });
+            const tempImg = new Image(); 
             
             tempImg.onload = function() {
+                $img.attr('src', url);
+                
                 $('#image-container').append($img);
-                resolve(true);
+                $img.fadeIn(200, function() {
+                    resolve({ success: true });
+                });
             };
             
             tempImg.onerror = function() {
@@ -71,7 +79,8 @@ $(document).ready(function () {
                 resolve(false);
             };
             
-            $img.attr('src', url);
+            
+            
             tempImg.src = url;
         });
     }

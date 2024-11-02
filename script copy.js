@@ -67,10 +67,10 @@ $(document).ready(function () {
 
                 })
             }
+        })
 
 
 
 
-
-
+        
 
