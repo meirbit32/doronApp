@@ -19,7 +19,7 @@ $(document).ready(function () {
                     var removedStr = myStr.substring(maxLength, $.trim(myStr).length)
                     $(this).empty().html(newStr + '...');
                     $(this).append('<span class=more-text style="display: none;">' + removedStr + '</span');
-                    $(this).append('<a href"=javascript:void(0);" class="read-more">Read More</a>');
+                    $(this).append('<a href"=javascript:void(0);" class="read-more">קרא עוד</a>');
                 }
             })
 
@@ -29,10 +29,10 @@ $(document).ready(function () {
                 console.log($content)
                 if($content.is(":visible")){
                     $content.hide();
-                    $this.text("Read More");
+                    $this.text("קרא עוד");
                 } else {
                     $content.show();
-                    $this.text("Read Less");
+                    $this.text("קרא פחות");
                 }
             })
 

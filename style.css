@@ -58,6 +58,7 @@ body{
     position: absolute;
     top: 12px;
     right: 0px;
+    z-index: 100;
 }
 .doron-img-self{
     margin:10px 5px;
@@ -133,15 +134,63 @@ body{
 
 .doron-img-second{
     width: calc(100% - 8px);
+    background-color: #128C7E;
     max-width: 300px;
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 15px;
-    border-radius: 50%;
+    border-radius: 40%;
     box-shadow: rgb(141 179 44 / 31%) 0px 41px 49px, rgb(115 99 1 / 87%) 0px 9px 147px, rgb(223 197 78 / 19%) 0px 49px 68px, rgb(0 0 0 / 10%) 0px 52px 61px, rgba(0, 0, 0, 0.09) 0px 11px;
     clip-path: polygon(0 0, 180% 0, 37% 101%, 0 calc(83% - 13px))
-      
+}
+.header-under-nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+    margin-top: 5px;
+    margin-left: 5px;
+    
+}
+.blured-background{
+    background-image: url(./media/pictures/IMG-20230620-WA0006.jpg);
+    width: 100vw;
+    max-width: 900px;
+    height: 500px;
+    filter: blur(7px);
+    z-index: 1;
+    position: relative;
+    top: 12px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.hitext p{
+    font-size: 60px;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute; 
+     top: 0px;
+     color: white;
+     margin-top:10px;
+     border-radius: 10px;
+     padding: 20px;
+     margin: 10px;
+}
+.doron-img-third{
+    position: absolute;
+    z-index:2;
+    right:10px;
+    width: calc(100% - 8px);
+    background-color: #badad788;
+    max-width: 300px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: auto;
+    margin-bottom: 15px;
+    border-radius: 40%;
+    filter: drop-shadow(25px -18px 22px rgba(62, 118, 67, 0.675)); /*offset-x offset-y blur-radius color*/
 }
 .main-content{
     box-sizing: border-box;
@@ -158,10 +207,11 @@ body{
 }
 
 .expl{
+    position:relative;
     width: 80vw;
     max-width: var(--max-width);
     /* background:var(--background); */
-    background:linear-gradient(180.43deg,rgba(26, 25, 25, 0.3)0%,rgba(44, 39, 39, 0.5)100%) , url(./media/pictures/background/20241101_144457.jpg);;
+    /* background:linear-gradient(180.43deg,rgba(26, 25, 25, 0.3)0%,rgba(44, 39, 39, 0.5)100%) , url(./media/pictures/background/20241101_144457.jpg);; */
     background-repeat: no-repeat;
     background-size:cover;
     padding: 5px;
@@ -173,6 +223,19 @@ body{
     font-weight: 600;
     
 }
+div .glass{
+    position: absolute;
+    width: 43vw;
+    max-width: 600px;
+    height: 200px;
+    /* border: #333 solid 2px; */
+    border-radius: 10px;
+    top: -298px;
+    z-index: 1;
+    -webkit-backdrop-filter:blur(13px);
+    backdrop-filter: blur(13px);
+    background-color: rgb(88 87 87 / 40%);
+}
 .expl-item {
     direction: rtl;
     font-size: clamp(0.8rem,1.5vw , 0.5rem);
@@ -180,6 +243,23 @@ body{
     font-size: bold;
     color:rgb(238, 240, 239);
     line-height: 25px;
+    padding: 20px;
+    
+    overflow: scroll;
+    text-overflow: ellipsis;
+    /* box-sizing: border-box; */
+    position: absolute;
+    width: 43vw;
+    max-width: 500px;
+    height: fit-content;
+    max-height: 200px;
+    /* border: #333 solid 2px; */
+    border-radius: 10px;
+    top: -298px;
+    z-index: 1;
+    -webkit-backdrop-filter:blur(13px);
+    backdrop-filter: blur(13px);
+    background-color: rgb(88 87 87 / 40%);
 
 }
 .movie-header{
@@ -191,6 +271,7 @@ body{
     margin-inline-end: 8px;
 }
 .read-more{
+    text-align: center;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -202,6 +283,7 @@ body{
     cursor: pointer;
     background-color: #1ab8a5;
     transform: scale(1.2);
+    transition: all 0.2s;
 }
 .main-movie video{
     border-radius: 10px;
