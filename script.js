@@ -29,9 +29,11 @@ $(document).ready(function () {
                 console.log($content)
                 if($content.is(":visible")){
                     $content.hide();
+                    $('.expl-item').removeClass("over-flow-add")
                     $this.text("קרא עוד");
                 } else {
                     $content.show();
+                    $('.expl-item').addClass("over-flow-add")
                     $this.text("קרא פחות");
                 }
             })
