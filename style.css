@@ -404,7 +404,7 @@ a{
     text-align: center;
 }
 #image-container img{
-    width: 200px;
+    width: clamp(200px, 100%, 300px);
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
@@ -508,8 +508,7 @@ a{
     .nav-bar {
         height: fit-content;
         /* width: calc(100% - 8px); */
-        display: flex;
-        flex-direction: column;
+        
         justify-content: space-between  ;
         text-align: left;
         display: block;
@@ -525,12 +524,14 @@ a{
         /* margin-left: auto; */
         /* margin-right: auto; */
         /* line-height: 70%; */
-    }
-    .nav-list-toogle{
-        
         display: none;
         background: none;
         border: none;
+    }
+    .nav-list-toogle{
+        display: flex;
+        flex-direction: column;
+        
     }
     .nav-item{
         opacity: 1;
