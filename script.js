@@ -9,7 +9,7 @@ $(document).ready(function () {
             })
             $(".material-symbols-outlined").on("click", function(event){
                 event.preventDefault()
-                $(".nav-list-toogle").toggle();
+                $(".nav-list").toggleClass("nav-list-toogle");
             })
             var maxLength = 50;
             $(".read-more-content").each(function(){
