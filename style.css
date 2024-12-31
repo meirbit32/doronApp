@@ -85,14 +85,20 @@ body{
 }
 .nav-bar .nav-list{
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
     max-width: 400px;
-    width: 100%;
+    width: fit-content;
     display: flex;
-    justify-content: space-between;
+    justify-content:center;
+    align-items: center;
+
+    opacity: 1;
+    max-height: 500px; /* Arbitrary large value that fits your content */
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
 }
+
+
+
 .material-symbols-outlined{
     display: none;
     padding: 0;
@@ -218,7 +224,12 @@ body{
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     margin: 0 5px;
-    }
+    transition: all 0.8s ease;
+}
+.cards ul li:hover{
+    scale: 1.05;
+    box-shadow:#664c13 10px 10px 20px;
+}
 .card-item img{    position: relative;
     /* height: 115px; */
     display: block;
@@ -554,12 +565,18 @@ a{
         display: flex;
         flex-direction: column;
         justify-content: left;
+
+        opacity: 1;
+        max-height: 500px;
         
     }
+    
     .nav-bar .nav-list-toogle{
-        display: none;
-        background: none;
-        border: none;
+        opacity: 0;
+        max-height: 0;
+        margin: 0;
+        padding: 0;
+        max-width: 30px;
     }
     .nav-item{
         opacity: 1;
