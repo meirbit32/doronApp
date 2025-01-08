@@ -250,6 +250,7 @@ body{
     transform: rotateX(20deg);
     scale: 1.05;
 }
+
 .card-item img{    position: relative;
     /* height: 115px; */
     display: block;
@@ -273,6 +274,40 @@ body{
 .cards .ul-cards{
     height:fit-content
 }
+.popup-head {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    opacity: 0.8;
+    place-items: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    display: none;
+    background-color: #1d1919;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Additional styling as needed */
+}
+
+.popup-head .popup {
+    margin: 0 auto;
+    opacity: 1;
+    place-items: center;
+    width: 50vw;
+    height: 50vh;
+    z-index: 4;
+    display: none;
+    background-color: #ffffff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    /* Additional styling as needed */
+}
+
 .hitext p{
     /* font-family: "Rubik", serif; */
     font-optical-sizing: auto;
@@ -345,7 +380,7 @@ body{
     margin-inline-end: 8px;
 }
 .more-text{
-        font-size: clamp(0.8rem,1.5vw , 0.5rem);
+    font-size: clamp(1.2rem,1.5vw , 0.5rem);
 }
 .read-more{
     text-align: center;
@@ -354,7 +389,8 @@ body{
     margin-right: auto;
     border-radius: 24px;
     background-color: var(--background);
-    width: 80px;
+    width:fit-content;
+    padding: 5px 10px;
 }
 
 .expl .over-flow-add{
@@ -364,7 +400,7 @@ body{
 .read-more:hover{
     cursor: pointer;
     background-color: #195d35;
-    transform: scale(1.2);
+    transform: scale(1.05);
     transition: all 0.2s;
 }
 .main-content{

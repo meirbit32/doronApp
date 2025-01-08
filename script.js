@@ -5,6 +5,20 @@ $(document).ready(function () {
                 event.preventDefault()
                 $(".nav-list").toggleClass("nav-list-toogle");
             })
+
+            $('.card-item').on('click', function() {
+                const $popupHead = $('.popup-head');
+                const $popup = $('.popup');
+                $popupHead.fadeToggle(2000)
+                $popup.fadeToggle(2000)
+                $popupHead.on('click', ()=>{
+                    $popupHead.fadeOut(2000)
+                    $popup.fadeOut(2000)
+                })
+                // popup.toggle(); // Toggle the visibility of the popup
+                
+            });
+
             var maxLength = 50;
             $(".read-more-content").each(function(){
                 var myStr = $(this).text();
