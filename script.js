@@ -57,7 +57,9 @@ $(document).ready(function () {
 
             // Add loading indicator
     const $loadingIndicator = $('<div id="loading-indicator">Loading...</div>').hide();
+    let $imageNumberIndicator = $('<span id="image-number-indicator"></span>').hide();
     $('#image-container').after($loadingIndicator);
+    $('#image-container').before($imageNumberIndicator);
 
     function showLoading() {
         $loadingIndicator.show();
@@ -79,7 +81,8 @@ $(document).ready(function () {
                 $img.attr('src', url);
                 
                 $('#image-container').append($img);
-                $img.fadeIn(200, function() {
+                
+                $img.fadeIn(50, function() {
                     resolve({ success: true });
                 });
             };
@@ -111,6 +114,7 @@ $(document).ready(function () {
         
         hideLoading(); // Hide loading indicator
         isLoading = false;
+        showImageNumber()
     }
 
     // Initial load
@@ -122,6 +126,40 @@ $(document).ready(function () {
             loadImages();
         }
     });
+    const showImageNumber = ()=>{
+        const imagesAll = $('#image-container img');
+        const totalImages = imagesAll.length;
+
+        function displayPictureNumber(){
+            const windowHeight = $(window).height();
+            const scrollTop = $(window).scrollTop();
+            imagesAll.each(function(index){
+                const imageTop = $(this).offset().top;
+                const imageHeight = $(this).height();
+                if(imageTop >= scrollTop && imageTop < scrollTop +  windowHeight) {
+                    const pictureNumber = index + 1; // 1-based index
+                    if(totalImages > 0){
+                         $imageNumberIndicator.text(`${pictureNumber} / ${totalImages}`)
+                         $imageNumberIndicator.show();
+                         console.log(`Image ${pictureNumber} is onscreen.`)
+                    }
+                    // console.log(`Image ${pictureNumber} is onscreen.`)
+                    // You can display this information wherever you'd like (e.g., update a UI element).
+                }
+                
+
+            })
+        }
+        // Initial check when the page loads
+         displayPictureNumber();
+
+        // Listen for scroll events
+        $(window).on('scroll',displayPictureNumber);
+                 
+           
+    }
+
+
 });
 
 
